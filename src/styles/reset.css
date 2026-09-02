@@ -1,0 +1,131 @@
+/* ==========================================
+   GLOBAL RESET
+========================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   DOCUMENT
+========================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background: #f6f1e8;
+  color: #173a2b;
+
+  font-family: "DM Sans", sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ==========================================
+   FORM ELEMENTS
+========================================== */
+
+button,
+input,
+textarea,
+select {
+  color: inherit;
+
+  font: inherit;
+}
+
+
+button {
+  border: none;
+
+  touch-action: manipulation;
+}
+
+
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+
+/* ==========================================
+   LINKS
+========================================== */
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+
+  touch-action: manipulation;
+}
+
+
+/* ==========================================
+   MEDIA
+========================================== */
+
+img,
+video,
+svg {
+  display: block;
+
+  max-width: 100%;
+}
+
+
+img {
+  height: auto;
+}
+
+
+/* ==========================================
+   LISTS
+========================================== */
+
+ul,
+ol {
+  list-style: none;
+}
+
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+  }
+
+}
