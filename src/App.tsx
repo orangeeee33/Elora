@@ -231,9 +231,9 @@ function App() {
         className="hero"
       >
 
-        <video
+       <video
           className="hero-video"
-          src="/videos/fashion-hero.mp4"
+          src={`${import.meta.env.BASE_URL}videos/fashion-hero.mp4`}
           autoPlay
           muted
           loop
