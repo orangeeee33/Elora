@@ -40,9 +40,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] =
     useState(false);
 
-  const [isSearchOpen, setIsSearchOpen] =
-    useState(false);
-
+ 
   const [showFavorites, setShowFavorites] =
     useState(false);
 
@@ -200,7 +198,7 @@ const addToCart = (product: Product) => {
     setActiveCategory(category);
 
     setIsMenuOpen(false);
-    setIsSearchOpen(false);
+  
     setShowFavorites(false);
 
     scrollToCollection();
@@ -214,7 +212,7 @@ const addToCart = (product: Product) => {
   const openSearch = () => {
     setActiveCategory("ALL");
 
-    setIsSearchOpen(true);
+
     setShowFavorites(false);
     setIsMenuOpen(false);
 
@@ -230,7 +228,7 @@ const addToCart = (product: Product) => {
     setActiveCategory("ALL");
 
     setShowFavorites(true);
-    setIsSearchOpen(false);
+
     setIsMenuOpen(false);
 
     scrollToCollection();
@@ -557,12 +555,7 @@ const addToCart = (product: Product) => {
             setActiveCategory
           }
 
-          isSearchOpen={isSearchOpen}
-
-          onCloseSearch={() =>
-            setIsSearchOpen(false)
-          }
-
+         
           showFavorites={showFavorites}
 
           onOpenFavorites={() =>

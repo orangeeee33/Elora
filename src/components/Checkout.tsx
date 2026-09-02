@@ -100,49 +100,9 @@ function Checkout({
     }
 
 
-    const orderData = {
-
-      customer: {
-        name: name.trim(),
-        phone: phone.trim(),
-        address: address.trim(),
-      },
-
-      items: cart.map((item) => ({
-        id: item.id,
-        name: item.name,
-        price: item.price,
-        quantity: item.quantity,
-
-        itemTotal:
-          item.price * item.quantity,
-      })),
-
-      total: cartTotal,
-
-      paymentMethod,
-
-      transactionNumber:
-        paymentMethod === "wish"
-          ? transactionNumber.trim()
-          : "",
-
-      createdAt:
-        new Date().toISOString(),
-    };
-
-
     try {
 
       setIsSubmitting(true);
-
-      console.log(
-        "Order ready for backend:",
-        orderData
-      );
-
-
-    
 
       setOrderSent(true);
 

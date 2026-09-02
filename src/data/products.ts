@@ -25,7 +25,7 @@ export const products: Product[] = [
   { id: 13, name: "Burgundy Draped Off-Shoulder Top", price: 28, image: "/photo/Bergandy top.jpg", category: "TOPS", isNew: true },
   { id: 14, name: "Espresso Satin Cowl-Neck Top", price: 23, image: "/photo/brown.jpg", category: "TOPS" },
   { id: 15, name: "Ivory Bubble-Hem Halter Top", price: 26, image: "/photo/Bubbletop.jpg", category: "TOPS" },
-  { id: 16, name: "Black Off-Shoulder Ruched Top", price: 24, image: "/photo/black_top.jpg", category: "TOPS" },
+  { id: 16, name: "Black Off-Shoulder Ruched Top", price: 24, image: "/photo/black_top.jpg", category: "TOPS" , isSale: true , newPrice: 20 },
   { id: 17, name: "Ivory Lace-Trim Cami Top", price: 22, image: "/photo/white_top.jpg", category: "TOPS" },
   { id: 18, name: "Black Ruched Mock-Neck Top", price: 20, image: "/photo/black_top2.jpg", category: "TOPS" },
   { id: 19, name: "Burgundy Ruched Long-Sleeve Top", price: 24, image: "/photo/bergandy_top.jpg", category: "TOPS" },

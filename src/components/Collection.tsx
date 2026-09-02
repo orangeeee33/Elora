@@ -19,9 +19,7 @@ import type {
 } from "../data/products";
 
 
-gsap.registerPlugin(
-  MotionPathPlugin
-);
+gsap.registerPlugin(MotionPathPlugin);
 
 
 const categories = [
@@ -38,16 +36,20 @@ const categories = [
 
 
 type CollectionProps = {
-  onAddToCart: (product: Product) => void;
+  onAddToCart: (
+    product: Product
+  ) => void;
 
   activeCategory: string;
-  onCategoryChange: (category: string) => void;
 
-  isSearchOpen: boolean;
-  onCloseSearch: () => void;
+  onCategoryChange: (
+    category: string
+  ) => void;
 
   showFavorites: boolean;
+
   onOpenFavorites: () => void;
+
   onCloseFavorites: () => void;
 };
 
@@ -57,9 +59,6 @@ function Collection({
 
   activeCategory,
   onCategoryChange,
-
-  isSearchOpen,
-  onCloseSearch,
 
   showFavorites,
   onOpenFavorites,
@@ -242,6 +241,7 @@ function Collection({
           butterfly,
           {
             rotation: 8,
+
             scale: isMobile
               ? 0.72
               : 0.78,
@@ -289,7 +289,9 @@ function Collection({
       );
 
 
-    observer.observe(collectionHeader);
+    observer.observe(
+      collectionHeader
+    );
 
 
     return () => {
@@ -347,8 +349,6 @@ function Collection({
     onCategoryChange("ALL");
 
     setSearch("");
-
-    onCloseSearch();
 
     onOpenFavorites();
 
@@ -632,51 +632,51 @@ function Collection({
 
 
       {/* ======================================
-          SEARCH
+          SEARCH — ALWAYS VISIBLE
       ====================================== */}
 
-      {isSearchOpen && (
+      <div className="collection-search-container">
 
-        <div className="collection-search-container">
+        <div className="collection-search">
 
-          <div className="collection-search">
+          <span
+            className="search-icon"
+            aria-hidden="true"
+          >
+            ⌕
+          </span>
 
-            <span className="search-icon">
-              ⌕
-            </span>
+          <input
+            type="search"
+            placeholder="Search dresses, tops, bags..."
+            value={search}
+            onChange={(event) =>
+              setSearch(
+                event.target.value
+              )
+            }
+            aria-label="Search products"
+          />
 
-            <input
-              type="text"
-              placeholder="Search dresses, tops, bags..."
-              value={search}
-              onChange={(event) =>
-                setSearch(
-                  event.target.value
-                )
-              }
-              autoFocus
-            />
+
+          {search.trim() !== "" && (
 
             <button
               type="button"
               className="close-search"
-              aria-label="Close search"
-              onClick={() => {
-
-                setSearch("");
-
-                onCloseSearch();
-
-              }}
+              aria-label="Clear search"
+              onClick={() =>
+                setSearch("")
+              }
             >
               ×
             </button>
 
-          </div>
+          )}
 
         </div>
 
-      )}
+      </div>
 
 
       {/* ======================================
@@ -783,7 +783,7 @@ function Collection({
 
 
                   <img
-                    src={`${import.meta.env.BASE_URL}${product.image.replace(/^\//, "")}`}
+                    src={`${import.meta.env.BASE_URL}${product.image.replace(/^\/+/, "")}`}
                     alt={product.name}
                   />
 
@@ -813,7 +813,7 @@ function Collection({
                     {favorites.includes(
                       product.id
                     )
-                      ? "♥️"
+                      ? "♥"
                       : "♡"}
                   </button>
 
