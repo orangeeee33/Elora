@@ -53,35 +53,54 @@ function App() {
   /* ==========================================
      ADD TO CART
   ========================================== */
+const addToCart = (product: Product) => {
 
-  const addToCart = (product: Product) => {
-    setCart((currentCart) => {
+  const finalPrice =
+    product.isSale &&
+    product.newPrice !== undefined
+      ? product.newPrice
+      : product.price;
 
-      const existingItem =
-        currentCart.find(
-          (item) => item.id === product.id
-        );
 
-      if (existingItem) {
-        return currentCart.map((item) =>
+  setCart((currentCart) => {
+
+    const existingItem =
+      currentCart.find(
+        (item) =>
+          item.id === product.id
+      );
+
+
+    if (existingItem) {
+
+      return currentCart.map(
+        (item) =>
           item.id === product.id
             ? {
                 ...item,
-                quantity: item.quantity + 1,
+                quantity:
+                  item.quantity + 1,
               }
             : item
-        );
-      }
+      );
 
-      return [
-        ...currentCart,
-        {
-          ...product,
-          quantity: 1,
-        },
-      ];
-    });
-  };
+    }
+
+
+    return [
+      ...currentCart,
+      {
+        ...product,
+
+        price: finalPrice,
+
+        quantity: 1,
+      },
+    ];
+
+  });
+
+};
 
 
   /* ==========================================

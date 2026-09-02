@@ -509,8 +509,6 @@ button.active {
 }
 
 
-/* إذا كانت القطعة NEW وSALE */
-
 .new-badge + .sale-badge {
   top: 50px;
 }
