@@ -490,7 +490,7 @@ function Checkout({
               >
 
                 <img
-                  src={item.image}
+                  src={`${import.meta.env.BASE_URL}${product.image.replace(/^\//, "")}`}
                   alt={item.name}
                 />
 
